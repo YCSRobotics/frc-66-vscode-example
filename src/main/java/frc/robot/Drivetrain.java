@@ -1,9 +1,5 @@
 package frc.robot;
 
-import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.NeutralMode;
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
-
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.Spark;
 
@@ -14,6 +10,7 @@ public class Drivetrain {
 
     public Drivetrain() {
         backRightDriveMotor.setInverted(Constants.invertBackRightMotor);
+
     }
 
     public void updateDrivetrain() {

@@ -2,6 +2,12 @@ package frc.robot;
 
 import java.util.Map;
 
+import org.opencv.core.Core;
+import org.opencv.core.Mat;
+
+import edu.wpi.cscore.CvSource;
+import edu.wpi.cscore.UsbCamera;
+import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.wpilibj.Sendable;
 import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
@@ -13,6 +19,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class DriverDisplay {
 
+    //adds string
     ShuffleboardTab myTab = Shuffleboard.getTab("Robot Diagnostics");
     NetworkTableEntry test = myTab
     .add("String Test", "")
@@ -20,6 +27,7 @@ public class DriverDisplay {
     .withPosition(2, 2)
     .getEntry();
 
+    //add simple counter that counts up, takes double
     NetworkTableEntry RobotTime = myTab
     .add("Robot Time", 0.0)
     .withWidget("Text View")
@@ -28,6 +36,10 @@ public class DriverDisplay {
 
     int i = 0;
     double time = 0;
+
+    //add camera to shuffleboard
+    UsbCamera camera = CameraServer.getInstance().startAutomaticCapture(0);
+    myTab.add(ShuffleboardCameraWrapper.wrap(camera));
 
     public DriverDisplay() {
 
@@ -44,5 +56,6 @@ public class DriverDisplay {
 
 
     }
+
 
 }
