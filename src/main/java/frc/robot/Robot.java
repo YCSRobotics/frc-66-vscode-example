@@ -51,6 +51,8 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotPeriodic() {
+    diagnostics.updateDisplay();
+    
   }
 
   /**
@@ -93,7 +95,6 @@ public class Robot extends TimedRobot {
   @Override
   public void teleopPeriodic() {
     driveTrain.updateDrivetrain();
-    diagnostics.updateDisplay();
   }
 
   /**
