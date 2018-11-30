@@ -13,12 +13,7 @@ public class Drivetrain {
     private Spark backRightDriveMotor = new Spark(2);
 
     public Drivetrain() {
-        /*frontDriveMotor.configOpenloopRamp(Constants.turnRampRate);
-
-        backLeftDriveMotor.setNeutralMode(NeutralMode.Brake);
-        backLeftDriveMotor.configOpenloopRamp(Constants.rampRate);
         backRightDriveMotor.setInverted(Constants.invertBackRightMotor);
-        backRightDriveMotor.set(ControlMode.Follower, backLeftDriveMotor.getDeviceID());*/
     }
 
     public void updateDrivetrain() {
@@ -41,6 +36,8 @@ public class Drivetrain {
         } else {
             frontDriveMotor.set( 0.0);
         }
+
+        backRightDriveMotor.set(backLeftDriveMotor.getSpeed());
 
     }
 
